@@ -6,4 +6,13 @@ class Calculator
     end
     result
   end
+
+  def subtract(*operands)
+    result = operands.shift
+    operands.each do |operand|
+      result -= operand
+    end
+    result
+  end
+
 end

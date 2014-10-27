@@ -31,4 +31,25 @@ RSpec.describe Calculator do
       end
     end
   end
+
+  describe "#subtract" do
+    context "with at least two operands" do
+      it "returns the subtraction of the two operands" do
+        expect(@calculator.subtract(10, 5)).to eq(5)
+        expect(@calculator.subtract(25, 10)).to eq(15)
+        expect(@calculator.subtract(-75, -11)).to eq(-64)
+        expect(@calculator.subtract(55, 5, 20)).to eq(30)
+        expect(@calculator.subtract(40, 50, 10)).to eq(-20)
+        expect(@calculator.subtract(68, 51, 10)).to eq(7)
+        expect(@calculator.subtract(-75, 5, -10)).to eq(-70)
+        expect(@calculator.subtract(0, 0, 0, 13)).to eq(-13)
+        expect(@calculator.subtract(0, 0, 0, -35)).to eq(35)
+        expect(@calculator.subtract(19, 7, 1, 1)).to eq(10)
+        expect(@calculator.subtract(53, 90, 16, 10)).to eq(-63)
+        expect(@calculator.subtract(13, 15, -10, -11)).to eq(19)
+      end
+    end
+  end
+
+
 end
