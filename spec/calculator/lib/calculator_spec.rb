@@ -34,7 +34,7 @@ RSpec.describe Calculator do
 
   describe '#subtract' do
     context 'with at least two operands' do
-      it 'subtracts the right operand from the left operand ' do
+      it 'subtracts the right operand from the left operand' do
         expect(@calculator.subtract(10, 5)).to eq(5)
         expect(@calculator.subtract(25, 10)).to eq(15)
         expect(@calculator.subtract(-75, -11)).to eq(-64)
