@@ -6,8 +6,8 @@ RSpec.describe Calculator do
   end
 
   describe '#add' do
-    context "with at least two arguments" do
-      it 'returns the sum of its arguments' do
+    context 'with at least two operands' do
+      it 'adds all the operands' do
         expect(@calculator.add(1, 2)).to eq(3)
         expect(@calculator.add(11, 21)).to eq(32)
         expect(@calculator.add(76, 21)).to eq(97)
@@ -32,9 +32,9 @@ RSpec.describe Calculator do
     end
   end
 
-  describe "#subtract" do
-    context "with at least two operands" do
-      it "returns the subtraction of the two operands" do
+  describe '#subtract' do
+    context 'with at least two operands' do
+      it 'subtracts the right operand from the left operand ' do
         expect(@calculator.subtract(10, 5)).to eq(5)
         expect(@calculator.subtract(25, 10)).to eq(15)
         expect(@calculator.subtract(-75, -11)).to eq(-64)
