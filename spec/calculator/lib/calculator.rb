@@ -1,18 +1,13 @@
+require './arithmetic'
+
 class Calculator
+  include Arithmetic
+
   def add(*operands)
-    result = 0
-    operands.each do |operand|
-      result += operand
-    end
-    result
+    self.addition(operands)
   end
 
   def subtract(*operands)
-    result = operands.shift
-    operands.each do |operand|
-      result -= operand
-    end
-    result
+    self.subtraction(operands)
   end
-
 end
