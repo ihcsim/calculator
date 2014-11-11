@@ -1,4 +1,4 @@
-RSpec.describe 'Calculator Arithmetic Spy' do
+RSpec.describe Arithmetic do
   before(:all) do
     ArithmeticSpy.spy_increment
   end
@@ -7,11 +7,11 @@ RSpec.describe 'Calculator Arithmetic Spy' do
     ArithmeticSpy.remove_spy
   end
 
-  describe 'spy increment method' do
+  describe '#increment' do
     context 'when addition is invoked' do
       it 'all operands are added' do
         calculator = Calculator.new
-        calculator.add(1,2)
+        calculator.add(1, 2)
         expect(calculator.spy_result).to eq("1 + 2")
       end
     end
