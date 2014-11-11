@@ -16,6 +16,17 @@ RSpec.describe Calculator do
       end
     end
 
+    context 'when given one operand' do
+     it 'preserves the value of the operand' do
+       expect(@calculator.add(1)).to eq(1)
+       expect(@calculator.add(10)).to eq(10)
+       expect(@calculator.add(100)).to eq(100)
+       expect(@calculator.add(1000)).to eq(1000)
+       expect(@calculator.add(10000)).to eq(10000)
+       expect(@calculator.add(100000)).to eq(100000)
+     end
+    end
+
     context 'when given at least two operands' do
       it 'returns the summation of all operands' do
         expect(@calculator.add(1, 2)).to eq(3)
@@ -53,6 +64,17 @@ RSpec.describe Calculator do
         expect{@calculator.subtract(nil, 1, 2)}.to raise_error ArgumentError
         expect{@calculator.subtract(nil, 1, 2, 3)}.to raise_error ArgumentError
       end
+    end
+
+    context 'when given one operand' do
+     it 'preserves the value of the operand' do
+       expect(@calculator.subtract(1)).to eq(1)
+       expect(@calculator.subtract(10)).to eq(10)
+       expect(@calculator.subtract(100)).to eq(100)
+       expect(@calculator.subtract(1000)).to eq(1000)
+       expect(@calculator.subtract(10000)).to eq(10000)
+       expect(@calculator.subtract(100000)).to eq(100000)
+     end
     end
 
     context 'when given at least two operands' do
