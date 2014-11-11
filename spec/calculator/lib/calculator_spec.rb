@@ -1,13 +1,11 @@
-require './calculator'
-
 RSpec.describe Calculator do
   before(:each) do
     @calculator = Calculator.new
   end
 
   describe '#add' do
-    context 'with at least two operands' do
-      it 'adds all the operands' do
+    context 'when given at least two operands' do
+      it 'returns the summation of all operands' do
         expect(@calculator.add(1, 2)).to eq(3)
         expect(@calculator.add(11, 21)).to eq(32)
         expect(@calculator.add(76, 21)).to eq(97)
@@ -33,7 +31,7 @@ RSpec.describe Calculator do
   end
 
   describe '#subtract' do
-    context 'with at least two operands' do
+    context 'when given at least two operands' do
       it 'subtracts the right operand from the left operand' do
         expect(@calculator.subtract(10, 5)).to eq(5)
         expect(@calculator.subtract(25, 10)).to eq(15)
