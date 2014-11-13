@@ -1,6 +1,6 @@
 module Arithmetic
   def addition(operands)
-    result = 0
+    result = operands.shift
     operands.each do |operand|
       result = increment result, operand
     end
