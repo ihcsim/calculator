@@ -6,8 +6,15 @@ class ArithmeticSpy
     Arithmetic.class_eval do
       alias_method :original_increment, :increment
       define_method :increment do |operand1, operand2|
+        if operand2 > 0
+          operation = '+'
+        else
+          operation = '-'
+          operand2 = -1 * operand2
+        end
+
         @spy ||= "#{operand1}"
-        @spy << " + #{operand2}" # add a spy to track increment algorithm
+        @spy << " #{operation} #{operand2}" # add a spy to track increment algorithm
         original_increment operand1, operand2
       end
 

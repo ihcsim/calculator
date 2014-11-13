@@ -7,6 +7,8 @@ RSpec.describe Arithmetic do
     ArithmeticSpy.remove_spy
   end
 
+  let(:calculator) {Calculator.new}
+
   describe '#increment' do
     context 'when addition is invoked' do
       it 'all operands are added' do
@@ -31,6 +33,27 @@ RSpec.describe Arithmetic do
         expect(calculator.spy_result).to eq("567 + 634 + 711 + 890 + 956 + 1001")
         calculator.clear_spy_result
       end
+    end
+
+    context 'when subtraction is invoked' do
+      it 'all operands are subtracted from left-to-right' do
+        calculator.subtract(4, 1)
+        expect(calculator.spy_result).to eq("4 - 1")
+        calculator.clear_spy_result
+
+        calculator.subtract(78, 54, 10)
+        expect(calculator.spy_result).to eq("78 - 54 - 10")
+        calculator.clear_spy_result
+ 
+        calculator.subtract(321, 476, 111, 789)
+        expect(calculator.spy_result).to eq("321 - 476 - 111 - 789")
+        calculator.clear_spy_result
+
+        calculator.subtract(976, 322, 45, 7, 1234)
+        expect(calculator.spy_result).to eq("976 - 322 - 45 - 7 - 1234")
+        calculator.clear_spy_result
+
+      end 
     end
   end
 end
