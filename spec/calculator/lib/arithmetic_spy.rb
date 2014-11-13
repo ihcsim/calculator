@@ -13,16 +13,14 @@ class ArithmeticSpy
       end
 
       define_method :spy_result do
-        result = @spy.first.to_s
-        total = @spy.shift
+        spy_report = @spy.shift.to_s
         @spy.each do |operand|
           operation = operand > 0 ? '+' : ''
-          result << "#{operation}#{operand}"
-          total += operand
+          spy_report << "#{operation}#{operand}"
         end
 
         @spy.clear
-        result << '=' + total.to_s
+        spy_report << '=' + @result.to_s
       end
     end
   end
