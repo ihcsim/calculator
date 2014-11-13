@@ -19,11 +19,9 @@ class ArithmeticSpy
       end
 
       define_method :spy_result do
-        @spy
-      end
-
-      define_method :clear_spy_result do
+        result = @spy
         @spy = nil
+        result
       end
     end
   end
