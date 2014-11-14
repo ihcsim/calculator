@@ -93,5 +93,40 @@ RSpec.describe Calculator do
     end
   end
 
+  describe '#multiply' do
+    context 'when given a nil operand' do
+      it 'raises an error' do
+        expect{calculator.multiply(nil)}.to raise_error ArgumentError
+        expect{calculator.multiply(nil, 1)}.to raise_error ArgumentError
+        expect{calculator.multiply(nil, 10, 20)}.to raise_error ArgumentError
+        expect{calculator.multiply(32, nil, 56)}.to raise_error ArgumentError
+        expect{calculator.multiply(47, 78, nil)}.to raise_error ArgumentError
+        expect{calculator.multiply(58, 98, 23, 11, nil)}.to raise_error ArgumentError
+      end
+    end
 
+    context 'when given a single operand' do
+      it 'preserves the value of the operand' do
+        expect(calculator.multiply(1)).to eq(1)
+        expect(calculator.multiply(20)).to eq(20)
+        expect(calculator.multiply(300)).to eq(300)
+        expect(calculator.multiply(4000)).to eq(4000)
+        expect(calculator.multiply(50000)).to eq(50000)
+        expect(calculator.multiply(600000)).to eq(600000)
+      end
+    end
+
+    context 'when an operand is multiplied by zero' do
+      it 'returns zero' do
+        expect(calculator.multiply(0, 1)).to eq(0)
+        expect(calculator.multiply(0, 20)).to eq(0)
+        expect(calculator.multiply(0, 300)).to eq(0)
+        expect(calculator.multiply(0, 4000)).to eq(0)
+        expect(calculator.multiply(0, 50000)).to eq(0)
+        expect(calculator.multiply(0, 600000)).to eq(0)
+      end
+    end
+
+
+  end
 end
