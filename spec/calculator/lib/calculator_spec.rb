@@ -127,6 +127,28 @@ RSpec.describe Calculator do
       end
     end
 
+    context 'when given at least operands' do
+      it 'returns the multiplication result of all the operands' do
+        expect(calculator.multiply(1, 1)).to eq(1)
+        expect(calculator.multiply(3, 15)).to eq(45)
+        expect(calculator.multiply(10, 30, 1)).to eq(300)
+        expect(calculator.multiply(24, 56, 2, 79)).to eq(212352)
+        expect(calculator.multiply(56, 111, 325, 479)).to eq(967675800)
+        expect(calculator.multiply(100, 241, 456, 789)).to eq(8670794400)
+        expect(calculator.multiply(189, 200, 389, 611, 800)).to eq(7187412960000)
+        expect(calculator.multiply(254, 356, 500, 890, 982)).to eq(39514383760000)
+
+        # some negative operands
+        expect(calculator.multiply(1, -1)).to eq(-1)
+        expect(calculator.multiply(-3, 15)).to eq(-45)
+        expect(calculator.multiply(10, -30, 1)).to eq(-300)
+        expect(calculator.multiply(19, -34, -57)).to eq(36822)
+        expect(calculator.multiply(-24, -56, -2, -79)).to eq(212352)
+        expect(calculator.multiply(-100, 241, -456, 789)).to eq(8670794400)
+        expect(calculator.multiply(254, 356, 500, 890, 982)).to eq(39514383760000)
+        expect(calculator.multiply(412, 247, 599, 974, 1282)).to eq(76114600760848)
+      end
+    end
 
   end
 end
