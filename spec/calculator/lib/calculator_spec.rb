@@ -147,8 +147,21 @@ RSpec.describe Calculator do
         expect(calculator.multiply(-100, 241, -456, 789)).to eq(8670794400)
         expect(calculator.multiply(254, 356, 500, 890, 982)).to eq(39514383760000)
         expect(calculator.multiply(412, 247, 599, 974, 1282)).to eq(76114600760848)
+
+        expect(calculator.multiply(10, 10)).to eq(100)
+        expect(calculator.multiply(20, 100)).to eq(2000)
+        expect(calculator.multiply(30, 56)).to eq(1680)
+        expect(calculator.multiply(44, 78)).to eq(3432)
+        expect(calculator.multiply(11, 23, 32)).to eq(8096)
+        expect(calculator.multiply(21, 43, 59)).to eq(53277)
+        expect(calculator.multiply(19, 44, 68, 99)).to eq(5627952)
+        expect(calculator.multiply(33, 69, 91, 134)).to eq(27765738)
+
+        # testing with negative signs
+        expect(calculator.multiply(1, -1)).to eq(-1)
+        expect(calculator.multiply(-1, 1)).to eq(-1)
+        expect(calculator.multiply(-1, -1)).to eq(1)
       end
     end
-
   end
 end
