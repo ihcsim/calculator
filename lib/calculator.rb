@@ -1,4 +1,4 @@
-require './arithmetic'
+require_relative './arithmetic'
 
 class Calculator
   include Arithmetic

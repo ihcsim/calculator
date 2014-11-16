@@ -1,3 +1,5 @@
+require_relative '../lib/arithmetic'
+
 RSpec.describe Arithmetic do
   before(:all) do
     ArithmeticSpy.spy_increment

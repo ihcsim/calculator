@@ -1,3 +1,5 @@
+require_relative '../lib/calculator'
+
 RSpec.describe Calculator do
   let(:calculator) { Calculator.new }
 
