@@ -25,3 +25,9 @@ The *test spy* is tightly coupled with its corresponding arithmetic operation by
 To Run
 ------
 To execute the specs, execute <code>$ rspec spec/* --format d</code>
+
+Follow me on [![alt text][1.1]][1]
+[1.1]: http://i.imgur.com/tXSoThF.png (twitter icon with padding)
+[1]: http://www.twitter.com/IvanHCSIM
+
+If you found this sample useful, please consider [![endorsing](https://api.coderwall.com/ivanhcsim/endorsecount.png)](https://coderwall.com/ivanhcsim) me on coderwall.
