@@ -9,7 +9,7 @@ class ArithmeticSpy
         @spy ||= ''  # add a spy to track increment algorithm
         @spy << operand1.to_s if @spy.empty?
 
-        operation = operand2 > 0 ? '+' : ''
+        operation = determine_negativity operand2 
         @spy << "#{operation}#{operand2}"
 
         original_increment operand1, operand2
@@ -19,6 +19,10 @@ class ArithmeticSpy
         spy_report = @spy + "=#{@result}"
         @spy.clear
         spy_report
+      end
+
+      define_method :determine_negativity do |operand|
+        operand > 0 ? '+' : ''
       end
     end
   end
@@ -30,6 +34,7 @@ class ArithmeticSpy
       alias_method :increment, :original_increment
       remove_method :original_increment
       remove_method :spy_result
+      remove_method :determine_negativity
     end
   end
 end
