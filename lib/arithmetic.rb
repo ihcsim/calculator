@@ -18,7 +18,7 @@ module Arithmetic
   def multiplication(operands)
     result = operands.shift
     operands.each do |operand|
-      result = result * operand
+      result = product result, operand
     end
     result
   end
@@ -44,6 +44,10 @@ module Arithmetic
   private
   def increment(operand1, operand2)
     operand1 + operand2
+  end
+
+  def product(operand1, operand2)
+    operand1 * operand2
   end
 
   def validate_product_sign(operand_is_negative)
