@@ -6,21 +6,19 @@ class ArithmeticSpy
     Arithmetic.class_eval do
       alias_method :original_increment, :increment
       define_method :increment do |operand1, operand2|
-        @spy ||= []  # add a spy to track increment algorithm
-        @spy << operand1 if @spy.empty?
-        @spy << operand2
+        @spy ||= ''  # add a spy to track increment algorithm
+        @spy << operand1.to_s if @spy.empty?
+
+        operation = operand2 > 0 ? '+' : ''
+        @spy << "#{operation}#{operand2}"
+
         original_increment operand1, operand2
       end
 
       define_method :spy_result do
-        spy_report = @spy.shift.to_s
-        @spy.each do |operand|
-          operation = operand > 0 ? '+' : ''
-          spy_report << "#{operation}#{operand}"
-        end
-
+        spy_report = @spy + "=#{@result}"
         @spy.clear
-        spy_report << '=' + @result.to_s
+        spy_report
       end
     end
   end
