@@ -6,7 +6,7 @@ class ArithmeticProductSpy
         @spy ||= ''
         @spy = operand1.to_s if @spy.empty?
         @spy << "*#{operand2}"
-        @result = original_product operand1, operand2
+        original_product operand1, operand2
       end
 
       define_method :spy_result do
