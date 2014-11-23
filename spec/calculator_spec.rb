@@ -166,4 +166,72 @@ RSpec.describe Calculator do
       end
     end
   end
+
+  describe '#divide' do
+    context 'when given a single operand' do
+      it 'preserves the value of the operand' do
+        expect(calculator.divide(1)).to eq(1)
+        expect(calculator.divide(2)).to eq(2)
+        expect(calculator.divide(3)).to eq(3)
+        expect(calculator.divide(4)).to eq(4)
+        expect(calculator.divide(5)).to eq(5)
+        expect(calculator.divide(6)).to eq(6)
+        expect(calculator.divide(7)).to eq(7)
+        expect(calculator.divide(8)).to eq(8)
+        expect(calculator.divide(9)).to eq(9)
+        expect(calculator.divide(10)).to eq(10)
+      end
+    end
+
+    context 'when an operand is divided by 1' do
+      it 'preserves the value of the operand' do
+        expect(calculator.divide(2, 1)).to eq(2)
+        expect(calculator.divide(3, 1)).to eq(3)
+        expect(calculator.divide(4, 1)).to eq(4)
+        expect(calculator.divide(5, 1)).to eq(5)
+        expect(calculator.divide(6, 1)).to eq(6)
+        expect(calculator.divide(7, 1)).to eq(7)
+        expect(calculator.divide(8, 1)).to eq(8)
+        expect(calculator.divide(9, 1)).to eq(9)
+        expect(calculator.divide(10, 1)).to eq(10)
+      end
+    end
+
+    context 'when given at least two operands' do
+      it 'performs a left-to-right division on the operands' do
+        expect(calculator.divide(2, 2)).to eq(1)
+        expect(calculator.divide(4, 2)).to eq(2)
+        expect(calculator.divide(6, 2)).to eq(3)
+        expect(calculator.divide(8, 2)).to eq(4)
+        expect(calculator.divide(10, 2)).to eq(5)
+        expect(calculator.divide(3, 3)).to eq(1)
+        expect(calculator.divide(6, 3)).to eq(2)
+        expect(calculator.divide(9, 3)).to eq(3)
+        expect(calculator.divide(12, 3)).to eq(4)
+        expect(calculator.divide(15, 3)).to eq(5)
+        expect(calculator.divide(18, 3)).to eq(6)
+
+        expect(calculator.divide(20, 5, 2)).to eq(2)
+        expect(calculator.divide(60, 4, 3)).to eq(5)
+        expect(calculator.divide(81, 9, 9)).to eq(1)
+        expect(calculator.divide(99, 3, 3)).to eq(11)
+        expect(calculator.divide(120, 4, 2)).to eq(15)
+
+        expect(calculator.divide(48, 4, 2, 2)).to eq(3)
+        expect(calculator.divide(64, 2, 3, 4)).to eq(2)
+        expect(calculator.divide(92, 2, 2, 23)).to eq(1)
+        expect(calculator.divide(140, 7, 2, 5)).to eq(2)
+        expect(calculator.divide(186, 6, 31, 1)).to eq(1)
+        expect(calculator.divide(200, 2, 10, 5)).to eq(2)
+      end
+    end
+
+    context 'when given a nil operand' do
+      it 'raises an argument error' do
+        expect{calculator.divide(nil)}.to raise_error ArgumentError
+      end
+    end
+
+
+  end
 end

@@ -17,4 +17,13 @@ class Calculator
     raise ArgumentError if operands.include? nil
     @result = self.multiplication operands
   end
+
+  def divide(*operands)
+    raise ArgumentError if operands.include? nil
+    @result = operands.shift
+    operands.each do |operand|
+      @result /= operand if operand
+    end
+    @result
+  end
 end
